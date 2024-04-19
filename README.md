@@ -66,7 +66,7 @@ Make sure you include the `<script>` in your project (choose one of these):
 <!-- 3rd party CDN, not recommended for production use -->
 <script
   type="module"
-  src="https://www.unpkg.com/@daviddarnes/contrast-details@1.0.0/contrast-details.js"
+  src="https://www.unpkg.com/@daviddarnes/contrast-details@1.0.1/contrast-details.js"
 ></script>
 ```
 
@@ -74,7 +74,7 @@ Make sure you include the `<script>` in your project (choose one of these):
 <!-- 3rd party CDN, not recommended for production use -->
 <script
   type="module"
-  src="https://esm.sh/@daviddarnes/contrast-details@1.0.0"
+  src="https://esm.sh/@daviddarnes/contrast-details@1.0.1"
 ></script>
 ```
 
