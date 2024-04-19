@@ -3,35 +3,35 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Demo of component-name Web Component" />
-    <title>component-name Web Component Demo</title>
+    <meta name="description" content="Demo of contrast-details Web Component" />
+    <title>contrast-details Web Component Demo</title>
 
-    <script type="module" src="component-name.js"></script>
+    <script type="module" src="contrast-details.js"></script>
   </head>
   <body>
     <h2>General usage example</h2>
-    <component-name>
+    <contrast-details>
       <button>Button</button>
-    </component-name>
+    </contrast-details>
     <hr />
     <h2>Example using a fallback method</h2>
-    <component-name>
+    <contrast-details>
       <button>Button</button>
       <a href="#">Anchor</a>
-    </component-name>
+    </contrast-details>
     <style>
-      component-name:not(:defined) button,
-      component-name:defined a {
+      contrast-details:not(:defined) button,
+      contrast-details:defined a {
         display: none;
       }
     </style>
     <hr />
     <h2>Example using options or additional fallback method</h2>
-    <component-name attribute="value">
+    <contrast-details attribute="value">
       <button>Button</button>
-    </component-name>
+    </contrast-details>
     <style>
-      component-name[attribute="value"] {
+      contrast-details[attribute="value"] {
         outline: 1px solid red;
       }
     </style>
