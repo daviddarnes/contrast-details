@@ -2,7 +2,7 @@
 
 A Web Component to display the contrast ratio and level of two colours using CSS custom properties
 
-**[Demo](https://daviddarnes.github.io/contrast-details/demo.html)** | **[Further reading](https://darn.es/contrast-details-web-component/)**
+**[Demo](https://daviddarnes.github.io/contrast-details/demo.html)** | **[Custom template demo](https://daviddarnes.github.io/contrast-details/demo-custom-template.html)** | **[Further reading](https://darn.es/contrast-details-web-component/)**
 
 ## Examples
 
@@ -11,17 +11,47 @@ General usage example:
 ```html
 <script type="module" src="contrast-details.js"></script>
 
-<contrast-details style="--foreground: #000000; --background: #FCFAF2"></contrast-details>
+<contrast-details
+  style="--foreground: #444; --background: #ccc"
+></contrast-details>
+<contrast-details
+  style="--foreground: #444; --background: #613fe8"
+></contrast-details>
 ```
 
 Example using inherited values:
 
 ```html
-<div style="--foreground: #3D3D3D">
-  <contrast-details style="--background: #613FE8"></contrast-details>
-  <contrast-details style="--background: #FCFAF2"></contrast-details>
-  <contrast-details style="--background: #FFFFFF"></contrast-details>
+<script type="module" src="contrast-details.js"></script>
+
+<div style="--foreground: #444">
+  <contrast-details style="--background: #ccc"></contrast-details>
+  <contrast-details style="--background: #ffffff"></contrast-details>
+  <contrast-details style="--background: #613fe8"></contrast-details>
 </div>
+```
+
+Example using `level` attribute for styling
+
+```html
+<style>
+  contrast-details[level^="aa"] [data-key="level"]::after {
+    content: " ✅";
+  }
+
+  contrast-details[level="fail"] [data-key="level"]::after {
+    content: " ❌";
+  }
+</style>
+
+<script type="module" src="contrast-details.js"></script>
+
+<contrast-details
+  style="--foreground: #444; --background: #ccc"
+></contrast-details>
+<contrast-details
+  style="--foreground: #444; --background: #613fe8"
+></contrast-details>
 ```
 
 Example using a custom template:
@@ -30,10 +60,18 @@ Example using a custom template:
 <script type="module" src="contrast-details.js"></script>
 
 <template id="contrast-details-template">
-  <p>Contrast: <span data-key="ratio"></span> | <span data-key="level"></span></p>
+  <p>
+    Contrast: <span data-key="ratio"></span> –
+    <span data-key="level"></span>
+  </p>
 </template>
 
-<contrast-details style="--foreground: #000000; --background: #FCFAF2"></contrast-details>
+<contrast-details
+  style="--foreground: #444; --background: #ccc"
+></contrast-details>
+<contrast-details
+  style="--foreground: #444; --background: #613fe8"
+></contrast-details>
 ```
 
 ## Features
@@ -44,6 +82,7 @@ This Web Component allows you to:
 - Render the contrast ratio
 - Render the contrast level, as per WCAG grading
 - Utilise CSS custom properties to provide values, either on the element or through inheritance, which also allows the element to use those colours as you wish
+- Utilise a `level` attribute selector to style elements differently depending on `aaa`, `aa` and `fail` grades
 
 ## Installation
 
@@ -66,7 +105,7 @@ Make sure you include the `<script>` in your project (choose one of these):
 <!-- 3rd party CDN, not recommended for production use -->
 <script
   type="module"
-  src="https://www.unpkg.com/@daviddarnes/contrast-details@1.0.1/contrast-details.js"
+  src="https://www.unpkg.com/@daviddarnes/contrast-details@1.1.0/contrast-details.js"
 ></script>
 ```
 
@@ -74,7 +113,7 @@ Make sure you include the `<script>` in your project (choose one of these):
 <!-- 3rd party CDN, not recommended for production use -->
 <script
   type="module"
-  src="https://esm.sh/@daviddarnes/contrast-details@1.0.1"
+  src="https://esm.sh/@daviddarnes/contrast-details@1.1.0"
 ></script>
 ```
 

@@ -47,7 +47,14 @@
     <script type="module" src="contrast-details.js"></script>
   </head>
   <body>
-    <h2>General usage example</h2>
+    <template id="contrast-details-template">
+      <p>
+        Contrast: <span data-key="ratio"></span> –
+        <span data-key="level"></span>
+      </p>
+    </template>
+
+    <h2>Example using a custom template</h2>
 
     <contrast-details
       style="--foreground: #444; --background: #ccc"
@@ -55,15 +62,5 @@
     <contrast-details
       style="--foreground: #444; --background: #613fe8"
     ></contrast-details>
-
-    <hr />
-
-    <h2>Example using inherited values</h2>
-
-    <div style="--foreground: #444">
-      <contrast-details style="--background: #ccc"></contrast-details>
-      <contrast-details style="--background: #ffffff"></contrast-details>
-      <contrast-details style="--background: #613fe8"></contrast-details>
-    </div>
   </body>
 </html>
