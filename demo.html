@@ -7,38 +7,29 @@
     <title>contrast-details Web Component Demo</title>
 
     <style>
-      contrast-details {
+      contrast-details span {
+        inline-size: 3rem;
+        block-size: 3rem;
+        display: grid;
+        place-items: center;
         color: var(--foreground);
         background: var(--background);
-        padding: 0.25rem 1rem;
         border: 1px solid #ddd;
       }
-
-      dl {
-        display: grid;
-        grid-template-columns: max-content max-content;
-        column-gap: 1rem;
-        row-gap: 0.25rem;
-        align-items: baseline;
-      }
-
-      dt::after {
-        content: ":";
-      }
-
+      
       dd {
         margin: 0;
         font-weight: bold;
       }
-
-      contrast-details + contrast-details {
-        margin-block-start: -1px;
+      
+      dt ~ dt {
+        margin-block-start: 1rem;
       }
-
+      
       contrast-details[level^="aa"] [data-key="level"]::after {
         content: " ✅";
       }
-
+      
       contrast-details[level="fail"] [data-key="level"]::after {
         content: " ❌";
       }
